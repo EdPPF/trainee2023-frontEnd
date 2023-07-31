@@ -1,3 +1,4 @@
+import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 
@@ -10,6 +11,10 @@ export function Root() {
 
             <div className="flex justify-center">
                 <Outlet/>
+            </div>
+
+            <div className="flex justify-center">
+                <Footer/>
             </div>
         </>
     )
