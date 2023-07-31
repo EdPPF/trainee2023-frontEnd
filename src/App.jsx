@@ -1,14 +1,24 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import { Root } from "./pages/Root";
+import { Home } from "./pages/Home";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root/>,
+    children: [
+      {
+        path: "",
+        element: <Home/>
+      },
+    ]
+  }
+])
 
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="text-white bg-gray-600">
-          Esse é o início do Front End!
-        </h1>
-      </div>
-    </>
+    <RouterProvider router={router}/>
   )
 }
 
-export default App
+export default App;
