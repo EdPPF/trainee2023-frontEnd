@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export function Navbar() {
     return (
         <nav
-        className="w-1/2 h-[98px] bg-neutral-900 text-slate-300 flex items-center justify-around"
+        className="h-[98px] bg-neutral-900 text-slate-300 flex items-center justify-around"
         >
             <Link
             to="/"><img src="src/assets/images/Cucas.png" alt="Home"
