@@ -4,18 +4,14 @@ import { Outlet } from "react-router-dom";
 
 export function Root() {
     return (
-        <>
-            <div className="flex justify-center">
+        <div className="flex bg-neutral-950">
+            <div className="w-1/2 mx-auto justify-self-center">
                 <Navbar/>
-            </div>
 
-            <div className="flex justify-center">
                 <Outlet/>
-            </div>
 
-            <div className="flex justify-center">
                 <Footer/>
             </div>
-        </>
+        </div>
     )
 }
