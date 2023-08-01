@@ -9,7 +9,7 @@ export function Navbar() {
             to="/"><img src="src/assets/images/Cucas.png" alt="Home"
             className="h-20 rounded-full" />
             </Link>
-            <button href="#"> Logout </button>
+            <Link to="/login"> Login </Link>
         </nav>
     )
 }
