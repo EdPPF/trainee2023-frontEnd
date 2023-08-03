@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Home() {
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
@@ -22,12 +24,12 @@ export function Home() {
                 Navegue pelas categorias do blog!
             </p>
 
-            <div className="bg-neutral-400 w-1/2 grid justify-self-center mb-14 drop-shadow-lg rounded-md
+            <div className="bg-neutral-400 w-1/2 grid justify-self-center mb-14 shadow-lg shadow-orange-500 rounded-md
                 text-4xl font-bold justify-center">
-                <ul className="list-inside list-disc my-10 drop-shadow-lg grid">
-                    <li><a href="#"className="m-1 hover:text-red-500 duration-200">Daily</a></li>
-                    <li><a href="#"className="m-1 hover:text-blue-500 duration-200">Jogos</a></li>
-                    <li><a href="#"className="m-1 hover:text-yellow-500 duration-200">Anime</a></li>
+                <ul className="my-10 drop-shadow-lg grid">
+                    <Link to="#" className="m-1 hover:text-red-500 duration-200">Daily</Link>
+                    <Link to="#" className="m-1 hover:text-blue-500 duration-200">Jogos</Link>
+                    <Link to="#" className="m-1 hover:text-yellow-500 duration-200">Anime</Link>
                 </ul>
             </div>
         </div>
