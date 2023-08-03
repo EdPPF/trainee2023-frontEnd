@@ -6,6 +6,11 @@ export function Login() {
     const [senha, setSenha] = useState("");
     const [nome, setNome] = useState("");
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert("Email inserido: " + email + "\nSenha inserida: " + senha + "\nNome inserido: "+nome);
+    }
+
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
             <div className="h-auto grid">
@@ -18,10 +23,7 @@ export function Login() {
                 <div className="bg-neutral-400 grid justify-self-center mb-14 shadow-md shadow-orange-500
                 rounded-md text-4xl font-bold">
                     <form className="m-5 grid gap-5 justify-center"
-                     onSubmit={(event) => {
-                        event.preventDefault();
-                        alert("Email inserido: " + email + "\nSenha inserida: " + senha + "\nNome inserido: "+nome);
-                     }}
+                     onSubmit={handleSubmit}
                     >
                         Email:
                         <input type="email" placeholder="email" value={email}
