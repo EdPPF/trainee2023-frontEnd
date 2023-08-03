@@ -24,7 +24,7 @@ export function Home() {
                 Navegue pelas categorias do blog!
             </p>
 
-            <div className="bg-neutral-400 w-1/2 grid justify-self-center mb-14 drop-shadow-lg rounded-md
+            <div className="bg-neutral-400 w-1/2 grid justify-self-center mb-14 shadow-lg shadow-orange-500 rounded-md
                 text-4xl font-bold justify-center">
                 <ul className="my-10 drop-shadow-lg grid">
                     <Link to="#" className="m-1 hover:text-red-500 duration-200">Daily</Link>
