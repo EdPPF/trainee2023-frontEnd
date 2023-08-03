@@ -7,7 +7,7 @@ export function Navbar() {
         >
             <Link
             to="/"><img src="src/assets/images/Cucas.png" alt="Home"
-            className="h-20 mx-5 rounded-full text-right"
+            className="h-20 mx-5 rounded-xl text-right"
             />
             </Link>
 
