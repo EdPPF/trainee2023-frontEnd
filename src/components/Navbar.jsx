@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 export function Navbar() {
     return (
         <nav
-        className="w-1/2 h-[98px] bg-neutral-900 text-slate-300 flex items-center justify-around"
+        className="h-[98px] bg-neutral-900 text-slate-300 flex items-center justify-between text-2xl"
         >
             <Link
             to="/"><img src="src/assets/images/Cucas.png" alt="Home"
-            className="h-20 rounded-full" />
+            className="h-20 mx-5 rounded-xl text-right"
+            />
             </Link>
-            <button href="#"> Logout </button>
+
+            <Link to="/"> Home </Link>
+
+            <Link to="/login" className="mx-5"> Login </Link>
         </nav>
     )
 }
