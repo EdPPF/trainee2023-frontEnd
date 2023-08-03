@@ -41,14 +41,6 @@ export function Login() {
                         className="outline-none w-11/12 justify-self-center rounded-lg"
                         />
 
-                        Nome:
-                        <input type="text" placeholder="nome" value={nome}
-                        onChange={(event) => {
-                            setNome(event.target.value);
-                        }}
-                        className="outline-none w-11/12 justify-self-center rounded-lg"
-                        />
-
                         <button type="submit" className="hover:text-green-700 duration-200"> Entrar </button>
                     </form>
                 </div>
