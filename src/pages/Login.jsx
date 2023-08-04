@@ -4,28 +4,27 @@ import { api } from "../utils/api";
 
 export function Login() {
     const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
+    const [password, setPassword] = useState("");
 
     const [user, setUser] = useState(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        if (!email || !senha) {
+        if (!email || !password) {
             alert("Por favor, preencha todos os campos.");
             return;
         }
 
-        api
-            .get("/v1/users/login", {email, senha})
+        api.get("/v1/users/login", {email, password})
             .then((res) => {
-                setUser(res.data.user)
+                setUser(res.data.user);
             })
             .catch((err) => {
-                console.error(err);
+                console.error(err.toJSON());
                 alert("Erro ao fazer login.");
             });
-    }
+    };
 
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
@@ -54,9 +53,9 @@ export function Login() {
                         />
 
                         Senha:
-                        <input type="password" placeholder="senha" value={senha}
+                        <input type="password" placeholder="senha" value={password}
                         onChange={(event) => {
-                            setSenha(event.target.value);
+                            setPassword(event.target.value);
                         }}
                         className="outline-none w-11/12 justify-self-center rounded-lg"
                         />
