@@ -1,18 +1,38 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { api } from "../utils/api";
 
 export function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [nome, setNome] = useState("");
+
+    const [user, setUser] = useState(null);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Email inserido: " + email + "\nSenha inserida: " + senha + "\nNome inserido: "+nome);
+
+        if (!email || !senha) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
+        api
+            .get("/v1/users/login", {email, senha})
+            .then((res) => {
+                setUser(res.data.user)
+            })
+            .catch((err) => {
+                console.error(err);
+                alert("Erro ao fazer login.");
+            });
     }
 
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
+            {
+                user && <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
+            }
+
             <div className="h-auto grid">
                 <h2
                 className="mt-10 mx-5 font-abril-fatface font-semibold text-5xl
