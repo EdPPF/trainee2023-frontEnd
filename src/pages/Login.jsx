@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../utils/api";
 
 export function Login() {
@@ -7,6 +7,12 @@ export function Login() {
     const [password, setPassword] = useState("");
 
     const [user, setUser] = useState(null);
+
+    const navigate = useNavigate();
+
+    const navigateToProfile = () => {
+        navigate("/profile", {replace: true});
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,7 +22,7 @@ export function Login() {
             return;
         }
 
-        api.get("/v1/users/login", {email, password})
+        api.post("/v1/users/login", {email, password})
             .then((res) => {
                 setUser(res.data.user);
             })
@@ -60,7 +66,7 @@ export function Login() {
                         className="outline-none w-11/12 justify-self-center rounded-lg"
                         />
 
-                        <button type="submit" className="hover:text-green-700 duration-200"> Entrar </button>
+                        <button type="submit" onClick={navigateToProfile} className="hover:text-green-700 duration-200"> Entrar </button>
                     </form>
                 </div>
             </div>
