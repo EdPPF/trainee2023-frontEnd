@@ -25,7 +25,7 @@ export const UserContextProvider = ({ children }) => {
             });
     };
 
-    function logout() {
+    async function logout() {
         Cookies.remove("authentication_token");
         Cookies.remove("email");
 

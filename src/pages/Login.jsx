@@ -29,7 +29,7 @@ export function Login() {
                 alert("Erro ao fazer login.");
             });
 
-        // navigateToProfile();
+        navigateToProfile();
     };
 
     return (

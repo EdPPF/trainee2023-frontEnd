@@ -1,9 +1,7 @@
 import Cookies from "js-cookie";
-import { useUserContext } from "../utils/UserContext";
 
 export function Profile() {
     const info = Cookies.get("email")
-    const pfp = Cookies.get()
 
     return (
         <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
