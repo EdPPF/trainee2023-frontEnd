@@ -29,7 +29,7 @@ export function Home() {
                 <ul className="my-10 drop-shadow-lg grid">
                     <Link to="/posts" className="m-1 hover:text-red-500 duration-200">Daily</Link>
                     <Link to="/posts" className="m-1 hover:text-blue-500 duration-200">Jogos</Link>
-                    <Link to="/posts" className="m-1 hover:text-yellow-500 duration-200">Anime</Link>
+                    <Link to="/anime" className="m-1 hover:text-yellow-500 duration-200">Anime</Link>
                 </ul>
             </div>
         </div>

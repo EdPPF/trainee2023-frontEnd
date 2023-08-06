@@ -3,6 +3,7 @@ import { Root } from "./pages/Root";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { PostsIndex } from "./pages/PostsIndex";
+import { AnimeIndex } from "./pages/AnimeIndex";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/posts",
         element: <PostsIndex/>
+      },
+      {
+        path: "/anime",
+        element: <AnimeIndex/>
       }
     ]
   }

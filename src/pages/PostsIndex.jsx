@@ -12,24 +12,9 @@ export function PostsIndex() {
     }, []);
 
     return (
-        <div className="h-screen bg-gray-100 grid text-xl">
+        <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
             <h1 className="text-5xl my-5 h-fit justify-self-center">Todos os Posts!</h1>
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Fusce dignissim eleifend tincidunt.
-                Mauris ut imperdiet dui.
-                Aliquam in mauris vel enim pretium volutpat.
-                Vestibulum nisl eros, luctus vitae augue in, tempor iaculis ipsum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Fusce dignissim eleifend tincidunt.
-                Mauris ut imperdiet dui.
-                Aliquam in mauris vel enim pretium volutpat.
-                Vestibulum nisl eros, luctus vitae augue in, tempor iaculis ipsum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Fusce dignissim eleifend tincidunt.
-                Mauris ut imperdiet dui.
-                Aliquam in mauris vel enim pretium volutpat.
-                Vestibulum nisl eros, luctus vitae augue in, tempor iaculis ipsum.
                 {posts.map((post) => {
                     return (
                         <div className="bg-gray-400 m-3 rounded-sm grid">
@@ -38,11 +23,6 @@ export function PostsIndex() {
                         </div>
                     );
                 })}
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Fusce dignissim eleifend tincidunt.
-                Mauris ut imperdiet dui.
-                Aliquam in mauris vel enim pretium volutpat.
-                Vestibulum nisl eros, luctus vitae augue in, tempor iaculis ipsum.
             </div>
         </div>
     )
