@@ -25,7 +25,7 @@ export function Login() {
 
         login({email, password})
             .catch((err) => {
-                console.error(err.toJSON());
+                console.error(err);
                 alert("Erro ao fazer login.");
             });
 
@@ -35,7 +35,9 @@ export function Login() {
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
             {
-                user && <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
+                user && (
+                    <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
+                )
             }
 
             <div className="h-auto grid">

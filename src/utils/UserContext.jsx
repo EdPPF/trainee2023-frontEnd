@@ -1,7 +1,13 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { api } from "./api";
+import Cookies from "js-cookie";
 
 const userContext = createContext(null);
+
+function handleSetDefaultHeaders(email, authentication_token) {
+    api.defaults.headers.common["X-User-Token"] = authentication_token;
+    api.defaults.headers.common["X-User-Email"] = email;
+}
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState();
@@ -10,14 +16,28 @@ export const UserContextProvider = ({ children }) => {
         return api.post("/v1/users/login", {email, password})
             .then((res) => {
                 setUser(res.data.user);
-                api.defaults.headers.common["X-User-Token"] =
-                    res.data.authentication_token;
-                api.defaults.headers.common["X-User-Email"] =
-                    res.data.user.email;
+                handleSetDefaultHeaders(
+                    res.data.email, res.data.authentication_token
+                );
+
+                Cookies.set("authentication_token", res.data.authentication_token);
+                Cookies.set("email", res.data.email);
             });
     };
 
-    function logout() {};
+    function logout() {
+        // Cookies
+    };
+
+    useEffect(() => {
+        const email = Cookies.get("email");
+        const authentication_token = Cookies.get("authentication_token");
+        if (email && authentication_token){
+            handleSetDefaultHeaders(email, authentication_token);
+            // api.get("/users/login").then(res => setUser(res.data));
+            setUser({email: email});
+        }
+    }, [])
 
     return (
         <userContext.Provider value={{ user, login, logout }}>
