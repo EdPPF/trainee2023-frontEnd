@@ -7,7 +7,7 @@ export function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const {user, setUser} = useUserContext();
+    const {user, login, logout} = useUserContext();
 
     const navigate = useNavigate();
 
@@ -23,16 +23,13 @@ export function Login() {
             return;
         }
 
-        api.post("/v1/users/login", {email, password})
-            .then((res) => {
-                setUser(res.data.user);
-            })
+        login({email, password})
             .catch((err) => {
                 console.error(err.toJSON());
                 alert("Erro ao fazer login.");
             });
 
-        navigateToProfile();
+        // navigateToProfile();
     };
 
     return (

@@ -13,6 +13,8 @@ export function Navbar() {
 
             <Link to="/"> Home </Link>
 
+            <Link to="/profile"> Perfil </Link>
+
             <Link to="/login" className="mx-5"> Login </Link>
         </nav>
     )
