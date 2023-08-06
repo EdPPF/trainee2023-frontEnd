@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { api } from "../utils/api";
+import { useUserContext } from "../utils/UserContext";
 
 export function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const [user, setUser] = useState(null);
+    const {user, setUser} = useUserContext();
 
     const navigate = useNavigate();
 
@@ -30,6 +31,8 @@ export function Login() {
                 console.error(err.toJSON());
                 alert("Erro ao fazer login.");
             });
+
+        navigateToProfile();
     };
 
     return (
@@ -66,7 +69,7 @@ export function Login() {
                         className="outline-none w-11/12 justify-self-center rounded-lg"
                         />
 
-                        <button type="submit" onClick={navigateToProfile} className="hover:text-green-700 duration-200"> Entrar </button>
+                        <button type="submit" className="hover:text-green-700 duration-200"> Entrar </button>
                     </form>
                 </div>
             </div>

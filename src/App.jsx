@@ -5,6 +5,7 @@ import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import { PostsIndex } from "./pages/PostsIndex";
 import { AnimeIndex } from "./pages/AnimeIndex";
+import { UserContextProvider } from "./utils/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login/>,
-        children:[
-          {
-            path: "/profile",
-            element: <Profile/>
-          }
-        ]
+      },
+      {
+        path: "/profile",
+        element: <Profile/>
       },
       {
         path: "/posts",
@@ -39,7 +38,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <UserContextProvider>
+      <RouterProvider router={router}/>
+    </UserContextProvider>
   )
 }
 
