@@ -26,7 +26,11 @@ export const UserContextProvider = ({ children }) => {
     };
 
     function logout() {
-        // Cookies
+        Cookies.remove("authentication_token");
+        Cookies.remove("email");
+
+        handleSetDefaultHeaders("", "");
+        setUser(null);
     };
 
     useEffect(() => {
