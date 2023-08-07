@@ -6,7 +6,7 @@ export function AnimeIndex() {
     // const [post, setPost] = useState([]);
 
     useEffect(() => {
-        api.get("/v1/post_categories/show/3")
+        api.get("/v1/posts/get_posts_by_categ/3")
         .then((res) => {
             setAnime(res.data);
         });
@@ -26,8 +26,8 @@ export function AnimeIndex() {
                 {animes.map((anime) => {
                     return (
                         <div className="bg-gray-400 m-3 rounded-sm grid">
-                            <h2 className="m-2 text-2xl">{anime.post_id}</h2>
-                            <p className="mx-1">{anime.category_id}</p>
+                            <h2 className="m-2 text-2xl">{anime.title}</h2>
+                            <p className="mx-1">{anime.content}</p>
                         </div>
                     );
                 })}
