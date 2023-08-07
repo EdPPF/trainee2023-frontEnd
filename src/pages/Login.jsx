@@ -76,7 +76,7 @@ export function Login() {
             <hr className="border-neutral-900 border-2 rounded-xl"/>
 
             <p className="mx-5 text-2xl font-medium">
-                Ainda não possui uma conta? <Link to="#"
+                Ainda não possui uma conta? <Link to="/create"
                 className="hover:text-orange-500 duration-200 underline">
                     Crie uma
                 </Link>!

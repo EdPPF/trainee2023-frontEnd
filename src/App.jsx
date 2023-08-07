@@ -6,6 +6,7 @@ import { Profile } from "./pages/Profile";
 import { PostsIndex } from "./pages/PostsIndex";
 import { AnimeIndex } from "./pages/AnimeIndex";
 import { UserContextProvider } from "./utils/UserContext";
+import { CreateUser } from "./pages/CreateUser";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile/>
+      },
+      {
+        path: "/create",
+        element: <CreateUser/>
       },
       {
         path: "/posts",
