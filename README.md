@@ -12,3 +12,4 @@ Este projeto utiliza [React](https://react.dev/) com [Vite](https://vitejs.dev/)
 
 - [Tailwind](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/ptbr/)
+- [JS Cookies](https://github.com/js-cookie/js-cookie)

@@ -27,9 +27,9 @@ export function Home() {
             <div className="bg-neutral-400 w-1/2 grid justify-self-center mb-14 shadow-lg shadow-orange-500 rounded-md
                 text-4xl font-bold justify-center">
                 <ul className="my-10 drop-shadow-lg grid">
-                    <Link to="#" className="m-1 hover:text-red-500 duration-200">Daily</Link>
-                    <Link to="#" className="m-1 hover:text-blue-500 duration-200">Jogos</Link>
-                    <Link to="#" className="m-1 hover:text-yellow-500 duration-200">Anime</Link>
+                    <Link to="/daily" className="m-1 hover:text-red-500 duration-200">Daily</Link>
+                    <Link to="/games" className="m-1 hover:text-blue-500 duration-200">Jogos</Link>
+                    <Link to="/anime" className="m-1 hover:text-yellow-500 duration-200">Anime</Link>
                 </ul>
             </div>
         </div>

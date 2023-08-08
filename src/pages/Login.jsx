@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { api } from "../utils/api";
+import { useUserContext } from "../utils/UserContext";
 
 export function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const [user, setUser] = useState(null);
+    const {user, login, logout} = useUserContext();
+
+    const navigate = useNavigate();
+
+    const navigateToProfile = () => {
+        navigate("/profile", {replace: true});
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -16,20 +23,21 @@ export function Login() {
             return;
         }
 
-        api.get("/v1/users/login", {email, password})
-            .then((res) => {
-                setUser(res.data.user);
-            })
+        login({email, password})
             .catch((err) => {
-                console.error(err.toJSON());
+                console.error(err);
                 alert("Erro ao fazer login.");
             });
+
+        navigateToProfile();
     };
 
     return (
         <div className="h-screen bg-gray-100 grid text-xl">
             {
-                user && <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
+                user && (
+                    <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
+                )
             }
 
             <div className="h-auto grid">
@@ -68,7 +76,7 @@ export function Login() {
             <hr className="border-neutral-900 border-2 rounded-xl"/>
 
             <p className="mx-5 text-2xl font-medium">
-                Ainda não possui uma conta? <Link to="#"
+                Ainda não possui uma conta? <Link to="/create"
                 className="hover:text-orange-500 duration-200 underline">
                     Crie uma
                 </Link>!

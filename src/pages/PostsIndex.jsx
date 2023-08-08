@@ -1,0 +1,29 @@
+import { useEffect, useState } from "react";
+import { api } from "../utils/api"
+
+export function PostsIndex() {
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        api.get("/v1/posts/index")
+        .then((res) => {
+            setPosts(res.data);
+        });
+    }, []);
+
+    return (
+        <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
+            <h1 className="text-5xl my-5 h-fit justify-self-center">Todos os Posts!</h1>
+            <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
+                {posts.map((post) => {
+                    return (
+                        <div className="bg-gray-400 m-3 rounded-sm grid">
+                            <h2 className="m-2 text-2xl">{post.title}</h2>
+                            <p className="mx-1">{post.content}</p>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    )
+}
