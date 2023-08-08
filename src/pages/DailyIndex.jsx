@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { api } from "../utils/api"
 
-export function AnimeIndex() {
+export function DailyIndex() {
     const [animes, setAnime] = useState([]);
     // const [post, setPost] = useState([]);
 
     useEffect(() => {
-        api.get("/v1/posts/get_posts_by_categ/2")
+        api.get("/v1/posts/get_posts_by_categ/1")
         .then((res) => {
             setAnime(res.data);
         });
@@ -21,7 +21,7 @@ export function AnimeIndex() {
 
     return (
         <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
-            <h1 className="text-5xl my-5 h-fit justify-self-center">Posts coma a tag Anime</h1>
+            <h1 className="text-5xl my-5 h-fit justify-self-center">Posts coma a tag Daily</h1>
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
                 {animes.map((anime) => {
                     return (

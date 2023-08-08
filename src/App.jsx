@@ -7,6 +7,8 @@ import { PostsIndex } from "./pages/PostsIndex";
 import { AnimeIndex } from "./pages/AnimeIndex";
 import { UserContextProvider } from "./utils/UserContext";
 import { CreateUser } from "./pages/CreateUser";
+import { DailyIndex } from "./pages/DailyIndex";
+import { GamesIndex } from "./pages/GamesIndex";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,16 @@ const router = createBrowserRouter([
         element: <PostsIndex/>
       },
       {
+        path: "/daily",
+        element: <DailyIndex/>
+      },
+      {
         path: "/anime",
         element: <AnimeIndex/>
+      },
+      {
+        path: "/games",
+        element: <GamesIndex/>
       }
     ]
   }
