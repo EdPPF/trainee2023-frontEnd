@@ -3,7 +3,6 @@ import { api } from "../utils/api"
 
 export function AnimeIndex() {
     const [animes, setAnime] = useState([]);
-    // const [post, setPost] = useState([]);
 
     useEffect(() => {
         api.get("/v1/posts/get_posts_by_categ/2")
@@ -11,13 +10,6 @@ export function AnimeIndex() {
             setAnime(res.data);
         });
     }, []);
-
-    // useEffect(() => {
-    //     api.get("/v1/posts/index")
-    //     .then((res) => {
-    //         setPost(res.data.id);
-    //     });
-    // }, []);
 
     return (
         <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
