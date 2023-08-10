@@ -19,7 +19,9 @@ export function PostsIndex() {
                 {posts.map(post => {
                     return (
                         <li key={post.id} className="bg-gray-400 m-3 rounded-sm grid">
-                            <Link to={`/post/${post.id}`} className="m-2 text-2xl">{post.title}</Link>
+                            <Link to={`/post/${post.id}`} className="m-2 text-2xl hover:text-cyan-800 duration-200">
+                                {post.title}
+                            </Link>
                             <p className="mx-1 overflow-hidden">{post.content}</p>
                         </li>
                     );

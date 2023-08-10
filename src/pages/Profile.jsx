@@ -1,63 +1,40 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { api } from "../utils/api";
-import { Link } from "react-router-dom";
-// import { useUserContext } from "../utils/UserContext";
 
 export function Profile() {
-    const info = Cookies.get("email")
+    const email = Cookies.get("email")
+    const [user, setUser] = useState({});
 
-    // const user = useUserContext()
-
-    const [userData, setUserData] = useState('');
-
-    useEffect (() => {
-        api.get('/v1/users/show/1')
-        .then((res) => {
-            setUserData(res.data)
-        })
+    useEffect(() => {
+        api.get(`/v1/users/show_by_email/${email}`)
+           .then((res) => {
+                // alert(res.data.name)
+                setUser(res.data)
+           })
     }, []);
 
-    function AdminRender({ isadmin }) {
-        if (info != "") {
-            if (isadmin) {
-                return (
-                    <>
-                        <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
-                            <ul className="m-5">
-                                <h2>
-                                    {userData.name}
-                                </h2>
-                                <p>
-                                    {userData.email}
-                                </p>
-                            </ul>
-                        </div>
-                        <div className="bg-neutral-500 w-1/2 h-1/2 items-center justify-self-center mb-14 shadow-md shadow-teal-600 rounded-full
-                        text-2xl font-semibold flex justify-center">
-                            <Link to="/newpost" className="m-5 hover:text-orange-500 duration-200">Criar Post</Link>
-                        </div>
-                    </>
-                )
-            }
-        }
-    }
-
     return (
-        <div className="h-fit min-h-screen bg-gray-100 grid text-xl overflow-scroll">
-            <h1 className="text-5xl my-5 h-fit justify-self-center">Perfil do Usuário</h1>
+        <div className="h-fit min-h-screen bg-gradient-to-b from-gray-100 to-white text-xl overflow-scroll">
+            <div className="flex items-baseline">
+                {user && (
+                    <h1 className="m-5 h-fit justify-self-start w-fit bg-gray-500 rounded-lg flex items-baseline">
+                        <p className="my-2 ml-10 text-blue-900 text-5xl">{user.name}</p>
+                        <p className="mr-5 ml-2 text-blue-950 bg-orange-500/50 rounded-md">#{user.id}</p>
+                    </h1>
+                )}
 
-            <AdminRender isadmin={userData.is_admin}></AdminRender>
-
-            {/* <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
-            {
-                (info &&
-                <pre className="m-5 w-1/2 bg-lime-400 rounded-full grid justify-self-center">
-                    <code className="my-28 justify-self-center">{JSON.stringify(info, null, 2)}</code>
-                </pre>
+                {user && (
+                    <div className="bg-gray-600 rounded-lg h-fit">
+                        <p className="m-2 text-slate-200 italic">{user.email}</p>
+                    </div>
                 )
-            }
-            </div> */}
+                }
+            </div>
+            <hr className="border-neutral-900 border-2 rounded-xl m-5"/>
+            <img src="src/assets/images/Depois_Pensamos_Sobre_Isso.png" alt="Home"
+            className="mt-5 rounded-xl"
+            />
         </div>
     )
 }
