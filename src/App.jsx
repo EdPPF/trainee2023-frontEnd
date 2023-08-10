@@ -9,6 +9,7 @@ import { UserContextProvider } from "./utils/UserContext";
 import { CreateUser } from "./pages/CreateUser";
 import { DailyIndex } from "./pages/DailyIndex";
 import { GamesIndex } from "./pages/GamesIndex";
+import { CreatePost } from "./pages/CreatePost";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/games",
         element: <GamesIndex/>
+      },
+      {
+        path:"/newpost",
+        element: <CreatePost/>
       }
     ]
   }

@@ -3,7 +3,6 @@ import { api } from "../utils/api"
 
 export function AnimeIndex() {
     const [animes, setAnime] = useState([]);
-    // const [post, setPost] = useState([]);
 
     useEffect(() => {
         api.get("/v1/posts/get_posts_by_categ/2")
@@ -12,15 +11,8 @@ export function AnimeIndex() {
         });
     }, []);
 
-    // useEffect(() => {
-    //     api.get("/v1/posts/index")
-    //     .then((res) => {
-    //         setPost(res.data.id);
-    //     });
-    // }, []);
-
     return (
-        <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
+        <div className="h-fit min-h-screen bg-gray-100 grid text-xl overflow-scroll">
             <h1 className="text-5xl my-5 h-fit justify-self-center">Posts coma a tag Anime</h1>
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
                 {animes.map((anime) => {

@@ -33,7 +33,7 @@ export function Login() {
     };
 
     return (
-        <div className="h-screen bg-gray-100 grid text-xl">
+        <div className="h-screen bg-gray-100 grid text-xl overflow-scroll">
             {
                 user && (
                     <pre><code>{JSON.stringify(user, null, 2)}</code></pre>
@@ -48,7 +48,7 @@ export function Login() {
                 </h2>
 
                 <div className="bg-neutral-400 grid justify-self-center mb-14 shadow-md shadow-orange-500
-                rounded-md text-4xl font-bold">
+                rounded-md text-4xl font-bold w-1/2">
                     <form className="m-5 grid gap-5 justify-center"
                      onSubmit={handleSubmit}
                     >

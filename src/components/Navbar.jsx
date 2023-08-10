@@ -1,24 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUserContext } from "../utils/UserContext";
 
 export function Navbar() {
     const {logout} = useUserContext();
+    const navigate = useNavigate();
+
+    const handleClick = (event) => {
+        event.preventDefault();
+
+        logout();
+        navigate("/");
+    }
+
     return (
         <nav
-        className="h-[98px] bg-neutral-900 text-slate-300 flex items-center justify-between text-2xl"
+        className="h-[98px] bg-neutral-900 text-slate-300 flex items-center
+        justify-between text-2xl overflow-scroll"
         >
             <Link
             to="/"><img src="src/assets/images/Cucas.png" alt="Home"
-            className="h-20 mx-5 rounded-xl text-right"
+            className="h-16 ml-5 rounded-xl"
             />
             </Link>
 
-            <Link to="/"> Home </Link>
+            <Link to="/" className="hover:underline"> Home </Link>
 
-            <Link to="/profile"> Perfil </Link>
+            <Link to="/profile" className="hover:underline"> Perfil </Link>
 
-            <Link to="/login" className="mx-5"> Login </Link>
-            <button onClick={logout} className="mx-5"> Logout </button>
+            <Link to="/login"
+             className="hover:underline hover:text-blue-400 duration-300"> Login </Link>
+
+            <button onClick={handleClick}
+             className="mr-5 hover:underline hover:text-red-400 duration-300"> Logout </button>
         </nav>
     )
 }

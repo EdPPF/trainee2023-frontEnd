@@ -27,7 +27,7 @@ export function CreateUser() {
     };
 
     return (
-        <div className="h-fit min-h-screen bg-gray-100 grid text-xl">
+        <div className="h-fit min-h-screen bg-gray-100 grid text-xl overflow-scroll">
             <div className="bg-neutral-400 grid justify-self-center m-5 min-h-1/2 shadow-md shadow-orange-500
                 rounded-md text-4xl font-bold">
                     <form className="m-5 grid gap-5 justify-center"
