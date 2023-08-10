@@ -33,7 +33,7 @@ export function Home() {
                 </ul>
             </div>
             <div className="bg-neutral-500 w-1/2 justify-self-center mb-14 shadow-md shadow-teal-600 rounded-full
-                text-2xl font-semibold flex justify-center">
+                text-2xl font-semibold flex justify-center items-center">
                 <Link to="/posts" className="m-5 hover:text-lime-500 duration-200">Ver Todas as Postagens</Link>
             </div>
         </div>

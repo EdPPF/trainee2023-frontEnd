@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUserContext } from "../utils/UserContext";
 
 export function Navbar() {
     const {logout} = useUserContext();
+    const navigate = useNavigate();
+
+    const handleClick = (event) => {
+        event.preventDefault();
+
+        logout();
+        navigate("/");
+    }
+
     return (
         <nav
         className="h-[98px] bg-neutral-900 text-slate-300 flex items-center
@@ -21,7 +30,7 @@ export function Navbar() {
             <Link to="/login"
              className="hover:underline hover:text-blue-400 duration-300"> Login </Link>
 
-            <button onClick={logout}
+            <button onClick={handleClick}
              className="mr-5 hover:underline hover:text-red-400 duration-300"> Logout </button>
         </nav>
     )
