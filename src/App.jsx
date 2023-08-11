@@ -10,6 +10,7 @@ import { CreateUser } from "./pages/CreateUser";
 import { DailyIndex } from "./pages/DailyIndex";
 import { GamesIndex } from "./pages/GamesIndex";
 import { CreatePost } from "./pages/CreatePost";
+import { Post } from "./pages/Post";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/posts",
         element: <PostsIndex/>
+      },
+      {
+        path: "/post/:id",
+        element: <Post/>
       },
       {
         path: "/daily",

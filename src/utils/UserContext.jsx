@@ -36,10 +36,18 @@ export const UserContextProvider = ({ children }) => {
     useEffect(() => {
         const email = Cookies.get("email");
         const authentication_token = Cookies.get("authentication_token");
+        const name = Cookies.get("name");
         if (email && authentication_token){
             handleSetDefaultHeaders(email, authentication_token);
-            // api.get("/users/login").then(res => setUser(res.data));
-            setUser({email: email});
+            // api.get(`/v1/users/showemail/${email}`)
+            //    .then((res) => {
+            //         setUser({
+            //             id: res.data.id,
+            //             email: res.data.email,
+            //             name: res.data.name,
+            //         })
+            // });
+            setUser({email: email, name: name});
         }
     }, [])
 

@@ -7,13 +7,21 @@ export function CreateUser() {
     const [password, setPassword] = useState("");
 
     const handleSubmit = (event) => {
+        event.preventDefault();
+
         if (!email || !name || !password) {
             alert("Por favor, preencha todos os campos.");
             return;
         }
 
-        const response =  api.post("/v1/users/create", {
-            email, name, password
+        console.log({ name, email, password });
+        api.post("/v1/users/create", {
+            user: {
+                name: name,
+                email: email,
+                password: password
+            }
+            // name, email, password
         });
 
         // useEffect(() => {
@@ -57,7 +65,7 @@ export function CreateUser() {
                         className="outline-none w-11/12 justify-self-center rounded-lg"
                         />
 
-                        <button type="submit" className="hover:text-green-700 duration-200"> Entrar </button>
+                        <button type="submit" className="hover:text-green-700 duration-200"> Criar </button>
                     </form>
                 </div>
         </div>
