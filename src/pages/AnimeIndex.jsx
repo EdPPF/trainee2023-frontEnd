@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../utils/api"
+import { Link } from "react-router-dom";
 
 export function AnimeIndex() {
     const [animes, setAnime] = useState([]);
@@ -17,10 +18,12 @@ export function AnimeIndex() {
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
                 {animes.map((anime) => {
                     return (
-                        <div className="bg-gray-400 m-3 rounded-sm grid">
-                            <h2 className="m-2 text-2xl">{anime.title}</h2>
+                        <li key={anime.id} className="bg-gray-400 m-3 h-52 rounded-sm grid overflow-scroll">
+                            <Link to={`/post/${anime.id}`} className="m-2 text-2xl hover:text-cyan-800 duration-200">
+                                {anime.title}
+                            </Link>
                             <p className="mx-1">{anime.content}</p>
-                        </div>
+                        </li>
                     );
                 })}
             </div>

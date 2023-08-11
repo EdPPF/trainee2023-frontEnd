@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../utils/api"
+import { Link } from "react-router-dom";
 
 export function DailyIndex() {
     const [dailys, setDaily] = useState([]);
@@ -17,10 +18,12 @@ export function DailyIndex() {
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
                 {dailys.map((daily) => {
                     return (
-                        <div className="bg-gray-400 m-3 rounded-sm grid">
-                            <h2 className="m-2 text-2xl">{daily.title}</h2>
+                        <li key={daily.id} className="bg-gray-400 m-3 h-52 rounded-sm grid overflow-scroll">
+                            <Link to={`/post/${daily.id}`} className="m-2 text-2xl hover:text-cyan-800 duration-200">
+                                {daily.title}
+                            </Link>
                             <p className="mx-1">{daily.content}</p>
-                        </div>
+                        </li>
                     );
                 })}
             </div>
