@@ -18,11 +18,11 @@ export function PostsIndex() {
             <div className="m-5 h-fit rounded-xl bg-gray-300 shadow-md shadow-teal-500 grid text-xl">
                 {posts.map(post => {
                     return (
-                        <li key={post.id} className="bg-gray-400 m-3 rounded-sm grid">
+                        <li key={post.id} className="bg-gray-400 m-3 rounded-sm grid h-28 overflow-scroll">
                             <Link to={`/post/${post.id}`} className="m-2 text-2xl hover:text-cyan-800 duration-200">
                                 {post.title}
                             </Link>
-                            <p className="mx-1 overflow-hidden">{post.content}</p>
+                            <p className="mx-1">{post.content}</p>
                         </li>
                     );
                 })}
